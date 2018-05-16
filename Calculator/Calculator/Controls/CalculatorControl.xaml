@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.Controls.CalculatorControl"
+             x:Name="Calculator">
+    
+    <StackLayout Orientation="Vertical"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 Padding="1,1,0,0">
+
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Entry x:Name="lbOperation" Text="{Binding OperationText, Source={x:Reference Calculator}}"/>
+        </StackLayout>
+
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Label x:Name="lbResult" Text="Result:"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+                <Button Text="7" Grid.Row="0" Grid.Column="0" Clicked="ButtonClicked"/>
+                <Button Text="8" Grid.Row="0" Grid.Column="1" Clicked="ButtonClicked"/>
+                <Button Text="9" Grid.Row="0" Grid.Column="2" Clicked="ButtonClicked"/>
+                <Button Text="+" Grid.Row="0" Grid.Column="3" Clicked="ButtonClicked"/>
+
+                <Button Text="4" Grid.Row="1" Grid.Column="0" Clicked="ButtonClicked"/>
+                <Button Text="5" Grid.Row="1" Grid.Column="1" Clicked="ButtonClicked"/>
+                <Button Text="6" Grid.Row="1" Grid.Column="2" Clicked="ButtonClicked"/>
+                <Button Text="-" Grid.Row="1" Grid.Column="3" Clicked="ButtonClicked"/>
+
+                <Button Text="1" Grid.Row="2" Grid.Column="0" Clicked="ButtonClicked"/>
+                <Button Text="2" Grid.Row="2" Grid.Column="1" Clicked="ButtonClicked"/>
+                <Button Text="3" Grid.Row="2" Grid.Column="2" Clicked="ButtonClicked"/>
+                <Button Text="*" Grid.Row="2" Grid.Column="3" Clicked="ButtonClicked"/>
+
+                <Button Text="Del" Grid.Row="3" Grid.Column="0"/>
+                <Button Text="0" Grid.Row="3" Grid.Column="1" Clicked="ButtonClicked"/>
+                <Button Text="/" Grid.Row="3" Grid.Column="3"/>
+            </Grid>
+        </StackLayout>
+
+        <StackLayout>
+        <Button Text="=" HorizontalOptions="CenterAndExpand" Command="{Binding CalculateCommand, Source={x:Reference Calculator}}"/>
+        </StackLayout>
+
+    </StackLayout>
+</StackLayout>
